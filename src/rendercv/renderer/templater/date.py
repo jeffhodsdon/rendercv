@@ -92,6 +92,10 @@ def format_date_range(
     Returns:
         Formatted date range string.
     """
+    # Check if start and end are the same year - return single year instead of range
+    if isinstance(start_date, int) and isinstance(end_date, int) and start_date == end_date:
+        return str(start_date)
+
     if isinstance(start_date, int):
         # Then it means only the year is provided
         start_date = str(start_date)

@@ -11,7 +11,7 @@
   columns: (1fr, auto),
 {% endif %}
   column-gutter: 0cm,
-  align: horizon + left,
+  align: top + left,
 {% if design.header.photo_position == "left" %}
   [{{ image() }}],
   [

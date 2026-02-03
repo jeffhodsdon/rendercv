@@ -143,7 +143,9 @@ def parse_connections(rendercv_model: RenderCVModel) -> list[Connection]:
                     )
                 for social_network in rendercv_model.cv.social_networks:
                     url = social_network.url
-                    if rendercv_model.design.header.connections.display_urls_instead_of_usernames:
+                    if social_network.display_name:
+                        body = social_network.display_name
+                    elif rendercv_model.design.header.connections.display_urls_instead_of_usernames:
                         body = clean_url(url)
                     else:
                         match social_network.network:

@@ -53,6 +53,10 @@ class SocialNetwork(BaseModelWithoutExtraKeys):
     username: str = pydantic.Field(
         examples=["john_doe", "@johndoe@mastodon.social", "12345/john-doe"],
     )
+    display_name: str | None = pydantic.Field(
+        default=None,
+        description="Optional custom display text (e.g., 'linkedin →' instead of username)",
+    )
 
     @pydantic.field_validator("username")
     @classmethod
